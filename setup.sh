@@ -33,20 +33,20 @@ onComplete()
 onInstallAptPackage()
 {
 	echo -e "\t * Installing $1"
-	#apt-get --yes -qq $1
+	sudo apt-get install --yes -qq $1
 }
 
 onInstallPipPackage()
 {
 	echo -e "\t * Installing $1"
-	#pip install $1
+	pip install $1
 }
 
 # Expects an alternative name followed by a path to the binary
 onSetAlternative()
 {
 	echo -e "\t * Setting $1 => $2"
-	update-alternatives --set $1 $2
+	sudo update-alternatives --set $1 $2
 }
 
 # Expects a two file paths to link
@@ -64,7 +64,7 @@ step_UpdateApt()
 {
 	onStepStart "Updating Package List"
 
-	apt-get update
+	sudo apt-get update
 
 	onStepComplete
 }
@@ -73,7 +73,7 @@ step_UpgradeApt()
 {
 	onStepStart "Upgrading Packages"
 
-	apt-get upgrade --yes
+	sudo apt-get upgrade --yes
 
 	onStepComplete
 }
@@ -89,7 +89,6 @@ step_InstallAptPackages()
 		"xdg-utils"				#Additional Tools for Terminal
 		"i3"							#Window Manager
 		"suckless-tools" 	#Window Manager Tools
-		"startx"					#Additional Window Tools
 		"i3blocks"				#i3 status bar
 		"python-pip"			#Python Package Manager
 		"neovim"					#Text Editor
@@ -109,7 +108,6 @@ step_InstallPipPackages()
 
 	packages=(
 		"powerline-status"
-		"powerline-daemon"
 	)
 
 	for package in ${packages[*]}
@@ -125,6 +123,9 @@ step_SymlinkConfigs()
 	onStepStart "Symlinking Configurations"
 
 	onCreateSymlink ${PWD}/.bashrc ~/.bashrc
+	onCreateSymlink ${PWD}/i3/config ~/.config/i3/config
+	onCreateSymlink ${PWD}/i3/i3block.cfg ~/.config/i3/i3block.cfg
+	onCreateSymlink ${PWD}/i3/blockscripts ~/.config/i3/blockscripts
 
 	onStepComplete
 }
