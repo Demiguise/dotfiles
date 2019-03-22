@@ -3,7 +3,11 @@
 #Script assumes that Git is already installed.
 
 currentStep=1
-numSteps=6
+numSteps=7
+
+##############################
+### Utility Functions
+##############################
 
 # Expects a step name to be passed as the first argument
 onStepStart()
@@ -37,6 +41,24 @@ onInstallPipPackage()
 	echo -e "\t * Installing $1"
 	#pip install $1
 }
+
+# Expects an alternative name followed by a path to the binary
+onSetAlternative()
+{
+	echo -e "\t * Setting $1 => $2"
+	update-alternatives --set $1 $2
+}
+
+# Expects a two file paths to link
+onCreateSymlink()
+{
+	echo -e "\t * Symlinking $1 => $2"
+	ln -sf $1 $2
+}
+
+##############################
+### Setup Steps
+##############################
 
 step_UpdateApt()
 {
@@ -102,7 +124,16 @@ step_SymlinkConfigs()
 {
 	onStepStart "Symlinking Configurations"
 
-	echo "Totes symlinking here"
+	onCreateSymlink ${PWD}/.bashrc ~/.bashrc
+
+	onStepComplete
+}
+
+step_SetAlternatives()
+{
+	onStepStart "Setting Alternatives"
+
+	onSetAlternative editor /usr/bin/nvim
 
 	onStepComplete
 }
@@ -121,6 +152,7 @@ step_UpgradeApt
 step_InstallAptPackages
 step_InstallPipPackages
 step_SymlinkConfigs
+step_SetAlternatives
 step_ScheduleRestart
 
 onComplete
