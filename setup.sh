@@ -128,6 +128,7 @@ step_SymlinkConfigs()
 	onCreateSymlink ${scriptDir}/i3/config ~/.config/i3/config
 	onCreateSymlink ${scriptDir}/i3/i3block.cfg ~/.config/i3/i3block.cfg
 	onCreateSymlink ${scriptDir}/i3/blockscripts ~/.config/i3/blockscripts
+	onCreateSymlink ${scriptDir}/terminator/config ~/.config/terminator/config
 
 	onStepComplete
 }
