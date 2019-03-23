@@ -55,6 +55,11 @@ onSetAlternative()
 onCreateSymlink()
 {
 	echo -e "\t * Symlinking $1 => $2"
+	linkDir=$(dirname $2)
+	if [ ! -d "$linkDir" ]; then
+		echo -e "\t * Making directory..."
+		mkdir -p $linkDir
+	fi
 	ln -sf $1 $2
 }
 
@@ -130,7 +135,7 @@ step_SymlinkConfigs()
 	onCreateSymlink ${scriptDir}/i3/blockscripts ~/.config/i3/blockscripts
 	onCreateSymlink ${scriptDir}/terminator/config ~/.config/terminator/config
 	onCreateSymlink ${scriptDir}/powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
-	onCreateSymLink ${scriptDir}/powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
+	onCreateSymlink ${scriptDir}/powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
 
 	onStepComplete
 }
