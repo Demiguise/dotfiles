@@ -129,6 +129,8 @@ step_SymlinkConfigs()
 	onCreateSymlink ${scriptDir}/i3/i3block.cfg ~/.config/i3/i3block.cfg
 	onCreateSymlink ${scriptDir}/i3/blockscripts ~/.config/i3/blockscripts
 	onCreateSymlink ${scriptDir}/terminator/config ~/.config/terminator/config
+	onCreateSymlink ${scriptDir}/powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+	onCreateSymLink ${scriptDir}/powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
 
 	onStepComplete
 }
@@ -136,6 +138,9 @@ step_SymlinkConfigs()
 step_AdditionalConfiguration()
 {
 	onStepStart "Performing additional configuration"
+
+	echo -e "\t * Updating font cache..."
+	fc-cache -vf ~/.local/share/fonts
 
 	onStepComplete
 }
