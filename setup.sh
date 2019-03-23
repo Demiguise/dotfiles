@@ -2,8 +2,10 @@
 
 #Script assumes that Git is already installed.
 
+#Vars
 currentStep=1
-numSteps=7
+numSteps=8
+scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
 
 ##############################
 ### Utility Functions
@@ -122,10 +124,17 @@ step_SymlinkConfigs()
 {
 	onStepStart "Symlinking Configurations"
 
-	onCreateSymlink ${PWD}/.bashrc ~/.bashrc
-	onCreateSymlink ${PWD}/i3/config ~/.config/i3/config
-	onCreateSymlink ${PWD}/i3/i3block.cfg ~/.config/i3/i3block.cfg
-	onCreateSymlink ${PWD}/i3/blockscripts ~/.config/i3/blockscripts
+	onCreateSymlink ${scriptDir}/.bashrc ~/.bashrc
+	onCreateSymlink ${scriptDir}/i3/config ~/.config/i3/config
+	onCreateSymlink ${scriptDir}/i3/i3block.cfg ~/.config/i3/i3block.cfg
+	onCreateSymlink ${scriptDir}/i3/blockscripts ~/.config/i3/blockscripts
+
+	onStepComplete
+}
+
+step_AdditionalConfiguration()
+{
+	onStepStart "Performing additional configuration"
 
 	onStepComplete
 }
@@ -153,6 +162,7 @@ step_UpgradeApt
 step_InstallAptPackages
 step_InstallPipPackages
 step_SymlinkConfigs
+step_AdditionalConfiguration
 step_SetAlternatives
 step_ScheduleRestart
 
