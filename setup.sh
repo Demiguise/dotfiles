@@ -136,6 +136,7 @@ step_SymlinkConfigs()
 	onCreateSymlink ${scriptDir}/terminator/config ~/.config/terminator/config
 	onCreateSymlink ${scriptDir}/powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 	onCreateSymlink ${scriptDir}/powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
+	onCreateSymlink ${scriptDir}/nvim/init.vim ~/.config/nvim/init.vim
 
 	onStepComplete
 }
