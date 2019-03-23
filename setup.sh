@@ -153,7 +153,12 @@ step_ScheduleRestart()
 {
 	onStepStart "Schedule Restart"
 
-	echo "Totes restart here"
+	echo -n "--- Restart system now? "
+	read a
+	if [[ $a == "Y" || $a == "y" ]]; then
+		echo "--- Scheduling restart..."
+		sudo shutdown -r 1
+	fi
 
 	onStepComplete
 }
