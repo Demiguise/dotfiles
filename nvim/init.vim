@@ -8,6 +8,7 @@ set nocompatible
 call plug#begin()
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/vim-airline/vim-airline'
 call plug#end()
 
 """""""""""""""""""""""""""
@@ -22,6 +23,8 @@ else
 	set background=dark
 endif
 colorscheme solarized
+
+let g:airline_powerline_fonts=1
 
 """""""""""""""""""""""""""
 " Settings
