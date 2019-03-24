@@ -139,7 +139,7 @@ step_SymlinkConfigs()
 	onCreateSymlink powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 	onCreateSymlink powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
 	onCreateSymlink nvim/init.vim ~/.config/nvim/init.vim
-	onCreateSymLink nvim/plug.vim ~/.config/nvim/autoload/plug.vim
+	onCreateSymlink nvim/plug.vim ~/.config/nvim/autoload/plug.vim
 
 	onStepComplete
 }
