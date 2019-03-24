@@ -14,6 +14,7 @@ call plug#end()
 " Plugin settings
 """""""""""""""""""""""""""
 
+syntax enable
 let g:solarized_termcolors=256
 if has("gui_running")
 	set background=light
@@ -84,6 +85,3 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
-
-
-
