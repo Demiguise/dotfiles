@@ -1,6 +1,31 @@
 " Don't be VI
 set nocompatible
 
+"""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""
+
+call plug#begin()
+Plug 'https://github.com/altercation/vim-colors-solarized'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+call plug#end()
+
+"""""""""""""""""""""""""""
+" Plugin settings
+"""""""""""""""""""""""""""
+
+let g:solarized_termcolors=256
+if has("gui_running")
+	set background=light
+else
+	set background=dark
+endif
+colorscheme solarized
+
+"""""""""""""""""""""""""""
+" Settings
+"""""""""""""""""""""""""""
+
 set encoding=utf8
 set history=500
 
@@ -46,7 +71,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-
 """""""""""""""""""""""""""
 " Mappings
 """""""""""""""""""""""""""
@@ -60,3 +84,6 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
+
+
+
