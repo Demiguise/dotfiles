@@ -2,6 +2,7 @@
 set nocompatible
 
 set encoding=utf8
+set history=500
 
 " Highlight the cursors line
 set cursorline
@@ -24,6 +25,10 @@ set smarttab
 set tabstop=2
 set softtabstop=2
 
+" Ignore case when searching, but be smart about it
+set ignorecase
+set smartcase
+
 " Wildmenu show files you can tab complete to
 set wildmenu
 
@@ -31,7 +36,7 @@ set wildmenu
 " This can sometimes fix issues with "Press Enter..." messages
 set shortmess=a
 
-" Eliminate files which glutter git status
+" Eliminate files which clutter git status
 set nobackup
 set noswapfile
 
