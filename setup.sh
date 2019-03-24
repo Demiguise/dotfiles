@@ -115,6 +115,8 @@ step_InstallPipPackages()
 
 	packages=(
 		"powerline-status"
+		"pynvim"
+		"neovim"
 	)
 
 	for package in ${packages[*]}
