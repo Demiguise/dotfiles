@@ -54,13 +54,13 @@ onSetAlternative()
 # Expects a two file paths to link
 onCreateSymlink()
 {
-	echo -e "\t * Symlinking $1 => $2"
+	echo -e "\t * Symlinking ${scriptDir}$1 => $2"
 	linkDir=$(dirname $2)
 	if [ ! -d "$linkDir" ]; then
 		echo -e "\t * Making directory..."
 		mkdir -p $linkDir
 	fi
-	ln -sf $1 $2
+	ln -sf ${scriptDir}/$1 $2
 }
 
 ##############################
@@ -131,14 +131,15 @@ step_SymlinkConfigs()
 {
 	onStepStart "Symlinking Configurations"
 
-	onCreateSymlink ${scriptDir}/.bashrc ~/.bashrc
-	onCreateSymlink ${scriptDir}/i3/config ~/.config/i3/config
-	onCreateSymlink ${scriptDir}/i3/i3block.cfg ~/.config/i3/i3block.cfg
-	onCreateSymlink ${scriptDir}/i3/blockscripts ~/.config/i3/blockscripts
-	onCreateSymlink ${scriptDir}/terminator/config ~/.config/terminator/config
-	onCreateSymlink ${scriptDir}/powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
-	onCreateSymlink ${scriptDir}/powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
-	onCreateSymlink ${scriptDir}/nvim/init.vim ~/.config/nvim/init.vim
+	onCreateSymlink .bashrc ~/.bashrc
+	onCreateSymlink i3/config ~/.config/i3/config
+	onCreateSymlink i3/i3block.cfg ~/.config/i3/i3block.cfg
+	onCreateSymlink i3/blockscripts ~/.config/i3/blockscripts
+	onCreateSymlink terminator/config ~/.config/terminator/config
+	onCreateSymlink powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+	onCreateSymlink powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
+	onCreateSymlink nvim/init.vim ~/.config/nvim/init.vim
+	onCreateSymLink nvim/plug.vim ~/.config/nvim/autoload/plug.vim
 
 	onStepComplete
 }
