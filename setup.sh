@@ -138,6 +138,8 @@ step_SymlinkConfigs()
 	onCreateSymlink terminator/config ~/.config/terminator/config
 	onCreateSymlink powerline/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 	onCreateSymlink powerline/PowerlineSymbols.otf ~/.local/share/fonts/PowerlineSymbols.otf
+	onCreateSymlink lightdm/lightdm.conf /etc/lightdm/lightdm.conf
+	onCreateSymlink lightdm/setresolution.sh ~/.config/lightdm/setresolution.sh
 	onCreateSymlink nvim/init.vim ~/.config/nvim/init.vim
 	onCreateSymlink nvim/plug.vim ~/.config/nvim/autoload/plug.vim
 
