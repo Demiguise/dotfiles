@@ -60,7 +60,11 @@ onCreateSymlink()
 		echo -e "\t * Making directory..."
 		mkdir -p $linkDir
 	fi
-	sudo ln -sf ${scriptDir}/$1 $2
+	if [ -d "$2" ]; then
+		echo -e "\t * Ignoring existing symlink"
+	else
+		sudo ln -sf ${scriptDir}/$1 $2
+	fi
 }
 
 ##############################
