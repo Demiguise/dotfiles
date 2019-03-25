@@ -60,7 +60,7 @@ onCreateSymlink()
 		echo -e "\t * Making directory..."
 		mkdir -p $linkDir
 	fi
-	ln -sf ${scriptDir}/$1 $2
+	sudo ln -sf ${scriptDir}/$1 $2
 }
 
 ##############################
