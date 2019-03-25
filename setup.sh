@@ -157,6 +157,13 @@ step_AdditionalConfiguration()
 	echo -e "\t * Updating font cache..."
 	fc-cache -vf ~/.local/share/fonts
 
+	if [ -f "~/.ssh/id_ed25519" ]; then
+		echo -e "\t * SSH Key already exists..."
+	else
+		echo -e "\t * Creating SSH key..."
+		ssh-keygen -t ed25519 -N "" < /dev/null
+	fi
+
 	onStepComplete
 }
 
