@@ -54,7 +54,7 @@ onSetAlternative()
 # Expects a two file paths to link
 onCreateSymlink()
 {
-	echo -e "\t * Symlinking ${scriptDir}$1 => $2"
+	echo -e "\t * Symlinking ${scriptDir}/$1 => $2"
 	linkDir=$(dirname $2)
 	if [ ! -d "$linkDir" ]; then
 		echo -e "\t * Making directory..."
