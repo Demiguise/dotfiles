@@ -94,6 +94,7 @@ step_InstallAptPackages()
 	onStepStart "Installing Apt Packages"
 
 	packages=(
+		"debsums"					#Verification of installed packaged files
 		"lightdm"					#Display Manager
 		"dbus-x11"				#Additional Tools for Display
 		"terminator" 			#Terminal Emulator
@@ -103,6 +104,8 @@ step_InstallAptPackages()
 		"i3blocks"				#i3 status bar
 		"python-pip"			#Python Package Manager
 		"neovim"					#Text Editor
+		"libpam-tmpdir"		#Better handling of $TMPDIR
+		"debian-goodies"	#Adds checkrestart + other goodies
 	)
 
 	for package in ${packages[*]}
