@@ -106,6 +106,8 @@ step_InstallAptPackages()
 		"neovim"					#Text Editor
 		"libpam-tmpdir"		#Better handling of $TMPDIR
 		"debian-goodies"	#Adds checkrestart + other goodies
+		"dunst"						#Notification daemon
+		"libnotify-bin"		#binaries for doing notifications
 	)
 
 	for package in ${packages[*]}
