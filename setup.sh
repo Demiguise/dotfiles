@@ -175,6 +175,8 @@ step_AdditionalConfiguration()
 		ssh-keygen -t ed25519 -N "" < /dev/null
 	fi
 
+	shorewall/setup.sh
+
 	onStepComplete
 }
 
