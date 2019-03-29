@@ -1,0 +1,4 @@
+#ACTION				SOURCE		DEST		PROTO		DPORT
+ACCEPT				$FW				net			tcp			80
+ACCEPT				$FW				net			tcp			443
+Ping(ACCEPT)	$FW				net

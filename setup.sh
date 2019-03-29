@@ -108,6 +108,7 @@ step_InstallAptPackages()
 		"debian-goodies"	#Adds checkrestart + other goodies
 		"dunst"						#Notification daemon
 		"libnotify-bin"		#binaries for doing notifications
+		"shorewall"				#Netfilter configuration
 	)
 
 	for package in ${packages[*]}
@@ -151,6 +152,11 @@ step_SymlinkConfigs()
 	onCreateSymlink lightdm/setresolution.sh ~/.config/lightdm/setresolution.sh
 	onCreateSymlink nvim/init.vim ~/.config/nvim/init.vim
 	onCreateSymlink nvim/plug.vim ~/.config/nvim/autoload/plug.vim
+
+	onCreateSymlink shorewall/zones	/etc/shorewall/zones
+	onCreateSymlink shorewall/policy /etc/shorewall/policy
+	onCreateSymlink shorewall/interfaces /etc/shorewall/interfaces
+	onCreateSymlink shorewall/rules /etc/shorewall/rules
 
 	onStepComplete
 }
