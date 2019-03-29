@@ -2,3 +2,5 @@
 ACCEPT				$FW				net			tcp			80
 ACCEPT				$FW				net			tcp			443
 Ping(ACCEPT)	$FW				net
+SSH(ACCEPT)		$FW				net
+DNS(ACCEPT)		$FW				net
