@@ -29,6 +29,8 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym Mod4+l exec "~/.config/i3/lock.sh"
+
 # start a terminal
 bindsym $mod+Return exec terminator
 
