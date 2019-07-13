@@ -2,35 +2,47 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+------------------------------------------------------------------------
+-- Includes
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Load keys
 local keys = require("keys")
+modkey = keys.modkey
+root.keys(keys.globalkeys)
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
+------------------------------------------------------------------------
+-- Error handling
+
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+    naughty.notify({ 
+      preset = naughty.config.presets.critical,
+      title = "Oops, there were errors during startup!",
+      text = awesome.startup_errors 
+    })
 end
 
 -- Handle runtime errors after startup
@@ -47,8 +59,8 @@ do
         in_error = false
     end)
 end
--- }}}
 
+------------------------------------------------------------------------
 -- Define themes, using collection to easily switch between any
 local theme_dir = os.getenv("HOME") .. "/dotfiles/awesome/themes/"
 local theme_collection = {
@@ -57,20 +69,14 @@ local theme_collection = {
 }
 
 local theme_name = theme_collection[1]
-
 beautiful.init(theme_dir .. theme_name .. "/" .. "/theme.lua")
 
--- This is used later as the default terminal and editor to run.
+------------------------------------------------------------------------
+-- Setting up some environment variables
+
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = keys.modkey
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -79,20 +85,13 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
 }
 -- }}}
 
--- {{{ Menu
+------------------------------------------------------------------------
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+myawesomemenu = 
+{
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
@@ -129,7 +128,10 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
+
+------------------------------------------------------------------------
+-- Wibar 
+
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -259,10 +261,10 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
--- Set keys
-root.keys(keys.globalkeys)
 
--- {{{ Rules
+------------------------------------------------------------------------
+-- Rules
+
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -321,7 +323,9 @@ awful.rules.rules = {
 }
 -- }}}
 
--- {{{ Signals
+------------------------------------------------------------------------
+-- Signals
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
