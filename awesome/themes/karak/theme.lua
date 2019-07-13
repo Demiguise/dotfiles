@@ -4,11 +4,13 @@
 -------------------------------
 
 local themes_path = "~/dotfiles/awesome/themes/"
+local theme_name = "karak"
+local theme_folder = themes_path .. theme_name .. "/"
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "karak/zenburn-background.png"
+theme.wallpaper = theme_folder .. "background.png"
 -- }}}
 
 -- {{{ Styles
@@ -73,61 +75,61 @@ theme.menu_width  = dpi(100)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "karak/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "karak/taglist/squarez.png"
+theme.taglist_squares_sel   = theme_folder .. "taglist/squarefz.png"
+theme.taglist_squares_unsel = theme_folder .. "taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "karak/awesome-icon.png"
-theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
+theme.awesome_icon           = theme_folder .. "awesome-icon.png"
+theme.menu_submenu_icon      = theme_folder .. "default/submenu.png"
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = themes_path .. "karak/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "karak/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "karak/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "karak/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "karak/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "karak/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "karak/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "karak/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "karak/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "karak/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "karak/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "karak/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "karak/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "karak/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "karak/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "karak/layouts/cornerse.png"
+theme.layout_tile       = theme_folder .. "layouts/tile.png"
+theme.layout_tileleft   = theme_folder .. "layouts/tileleft.png"
+theme.layout_tilebottom = theme_folder .. "layouts/tilebottom.png"
+theme.layout_tiletop    = theme_folder .. "layouts/tiletop.png"
+theme.layout_fairv      = theme_folder .. "layouts/fairv.png"
+theme.layout_fairh      = theme_folder .. "layouts/fairh.png"
+theme.layout_spiral     = theme_folder .. "layouts/spiral.png"
+theme.layout_dwindle    = theme_folder .. "layouts/dwindle.png"
+theme.layout_max        = theme_folder .. "layouts/max.png"
+theme.layout_fullscreen = theme_folder .. "layouts/fullscreen.png"
+theme.layout_magnifier  = theme_folder .. "layouts/magnifier.png"
+theme.layout_floating   = theme_folder .. "layouts/floating.png"
+theme.layout_cornernw   = theme_folder .. "layouts/cornernw.png"
+theme.layout_cornerne   = theme_folder .. "layouts/cornerne.png"
+theme.layout_cornersw   = theme_folder .. "layouts/cornersw.png"
+theme.layout_cornerse   = theme_folder .. "layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "karak/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "karak/titlebar/close_normal.png"
+theme.titlebar_close_button_focus  = theme_folder .. "titlebar/close_focus.png"
+theme.titlebar_close_button_normal = theme_folder .. "titlebar/close_normal.png"
 
-theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
+theme.titlebar_minimize_button_normal = theme_folder .. "default/titlebar/minimize_normal.png"
+theme.titlebar_minimize_button_focus  = theme_folder .. "default/titlebar/minimize_focus.png"
 
-theme.titlebar_ontop_button_focus_active  = themes_path .. "karak/titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "karak/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "karak/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "karak/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_active  = theme_folder .. "titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_active = theme_folder .. "titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_inactive  = theme_folder .. "titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_inactive = theme_folder .. "titlebar/ontop_normal_inactive.png"
 
-theme.titlebar_sticky_button_focus_active  = themes_path .. "karak/titlebar/sticky_focus_active.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "karak/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "karak/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "karak/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_active  = theme_folder .. "titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_active = theme_folder .. "titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_inactive  = theme_folder .. "titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_inactive = theme_folder .. "titlebar/sticky_normal_inactive.png"
 
-theme.titlebar_floating_button_focus_active  = themes_path .. "karak/titlebar/floating_focus_active.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "karak/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "karak/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "karak/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_active  = theme_folder .. "titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_active = theme_folder .. "titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_inactive  = theme_folder .. "titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_inactive = theme_folder .. "titlebar/floating_normal_inactive.png"
 
-theme.titlebar_maximized_button_focus_active  = themes_path .. "karak/titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "karak/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "karak/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "karak/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_active  = theme_folder .. "titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_active = theme_folder .. "titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_inactive  = theme_folder .. "titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = theme_folder .. "titlebar/maximized_normal_inactive.png"
 -- }}}
 -- }}}
 
