@@ -62,7 +62,7 @@ end
 
 ------------------------------------------------------------------------
 -- Define themes, using collection to easily switch between any
-local theme_dir = os.getenv("HOME") .. "/dotfiles/awesome/themes/"
+local theme_dir = os.getenv("HOME") .. "/dotfiles/awesome-themes/"
 local theme_collection = {
   "karak"
 }

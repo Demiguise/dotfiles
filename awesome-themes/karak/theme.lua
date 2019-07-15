@@ -3,7 +3,7 @@
 --    By Andy   --
 -------------------------------
 
-local themes_path = "~/dotfiles/awesome/themes/"
+local themes_path = "~/dotfiles/awesome-themes/"
 local theme_name = "karak"
 local theme_folder = themes_path .. theme_name .. "/"
 local dpi = require("beautiful.xresources").apply_dpi
