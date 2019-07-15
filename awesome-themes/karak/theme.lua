@@ -59,6 +59,18 @@ theme.menu_width  = dpi(100)
 --  Taglist
 theme.taglist_squares_sel   = theme_folder .. "taglist/squarefz.png"
 theme.taglist_squares_unsel = theme_folder .. "taglist/squarez.png"
+theme.tagnames = {
+  "Main",
+  "Web",
+  "Chat",
+  "Term",
+  "Files",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+}
 
 -- Misc
 theme.awesome_icon           = theme_folder .. "awesome-icon.png"
