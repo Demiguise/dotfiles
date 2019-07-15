@@ -85,7 +85,6 @@ awful.layout.layouts = {
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
 }
--- }}}
 
 ------------------------------------------------------------------------
 -- Create a launcher widget and a main menu
@@ -250,15 +249,13 @@ awful.screen.connect_for_each_screen(function(s)
 			},
 		}
 end)
--- }}}
 
--- {{{ Mouse bindings
+-- Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
 
 
 ------------------------------------------------------------------------
@@ -320,7 +317,6 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
 
 ------------------------------------------------------------------------
 -- Signals
@@ -386,4 +382,3 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
