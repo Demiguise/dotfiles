@@ -81,9 +81,6 @@ editor_cmd = terminal .. " -e " .. editor
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
 }
 
 ------------------------------------------------------------------------
@@ -91,8 +88,6 @@ awful.layout.layouts = {
 myawesomemenu = 
 {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
@@ -125,7 +120,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
-
 
 ------------------------------------------------------------------------
 -- Wibar 
@@ -220,11 +214,11 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
-		s.botbox = awful.wibar({ position = "bottom", screen = s })
+    s.topbar = awful.wibar({ position = "top", screen = s })
+    s.botbox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
-    s.mywibox:setup {
+    s.topbar:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
@@ -236,18 +230,21 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
             s.mylayoutbox,
         },
     }
-		
-		s.botbox:setup {
-			layout = wibox.layout.align.horizontal,
-			{
-					layout = wibox.layout.fixed.horizontal,
-					mylauncher
-			},
-		}
+    
+    s.botbox:setup {
+      layout = wibox.layout.align.horizontal,
+      {
+          layout = wibox.layout.fixed.horizontal,
+          mylauncher
+      },
+      {
+          layout = wibox.layout.fixed.horizontal,
+          mytextclock,
+      }
+    }
 end)
 
 -- Mouse bindings
@@ -256,7 +253,6 @@ root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
-
 
 ------------------------------------------------------------------------
 -- Rules
