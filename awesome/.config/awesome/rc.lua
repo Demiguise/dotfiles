@@ -34,6 +34,9 @@ root.keys(keys.globalkeys)
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- Awesome-wm-widgets
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+
 ------------------------------------------------------------------------
 -- Error handling
 
@@ -246,6 +249,7 @@ awful.screen.connect_for_each_screen(function(s)
       },
       {
           layout = wibox.layout.fixed.horizontal,
+          volume_widget,
           mytextclock,
       }
     }
