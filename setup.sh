@@ -99,9 +99,7 @@ step_InstallAptPackages()
 		"dbus-x11"				#Additional Tools for Display
 		"terminator" 			#Terminal Emulator
 		"xdg-utils"				#Additional Tools for Terminal
-		"i3"							#Window Manager
-		"suckless-tools" 	#Window Manager Tools
-		"i3blocks"				#i3 status bar
+		"awesome"	  			#Window Manager
 		"python-pip"			#Python Package Manager
 		"neovim"					#Text Editor
 		"libpam-tmpdir"		#Better handling of $TMPDIR
