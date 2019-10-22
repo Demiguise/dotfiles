@@ -1,4 +1,0 @@
-#SOURCE			DEST			POLICY		LOGLEVEL		LIMIT
-$FW					net				DROP			info
-net					all				DROP			info
-all					all				DROP			info

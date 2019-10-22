@@ -1,3 +1,0 @@
-#ZONE		TYPE		OPTIONS		IN		OUT
-fw			firewall
-net			ipv4
