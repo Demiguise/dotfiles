@@ -91,6 +91,7 @@ fi
 alias ll='ls -lah'
 #alias la='ls -A'
 #alias l='ls -CF'
+alias fd='fdfind'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
