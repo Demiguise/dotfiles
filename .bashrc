@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+#~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -88,7 +88,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
+alias ll='ls -lah'
 #alias la='ls -A'
 #alias l='ls -CF'
 
@@ -112,11 +112,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export TERMINAL=terminator
-
-#Need to set the PATH to include the scripts for powerline apparently
-if [ -d "$HOME/.local/bin" ]; then
-	PATH="$HOME/.local/bin:$PATH"
+if [ -f "$(which powerline-daemon)" ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bindings/bash/powerline.sh
 fi
-export POWERLINE_COMMAND=powerline
-. /home/andy/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
