@@ -1,0 +1,18 @@
+[user]
+	email = andrew.hewitson@omegapoint.se
+	name = Andrew Hewitson
+	
+[core]
+	autocrlf = false
+	
+[merge]
+	renamelimit = 2725
+
+[alias]
+	st = status
+	cmt = cmt
+	dh = diff
+	ireb = rebase -i
+	bclean = !"git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d"
+	cp = cherry-pick
+	ls = log --oneline
