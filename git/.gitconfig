@@ -7,6 +7,9 @@
 	
 [merge]
 	renamelimit = 2725
+	
+[rerere]
+	enabled = 1
 
 [alias]
 	st = status
