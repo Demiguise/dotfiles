@@ -9,3 +9,6 @@ echo =====
 
 echo Linking [%WORKINGDIR%\git\.gitconfig] to [%USERDIR%\.gitconfig]
 mklink %USERDIR%\.gitconfig %WORKINGDIR%\git\.gitconfig
+
+echo Linking [%WORKINGDIR%\vim\.vimrc] to [%USERDIR%\.vimrc]
+mklink %USERDIR%\.vimrc %WORKINGDIR%\vim\.vimrc
