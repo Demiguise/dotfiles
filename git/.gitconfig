@@ -13,9 +13,14 @@
 
 [alias]
 	st = status
-	cmt = cmt
+	cmt = commit
 	dh = diff
 	ireb = rebase -i
 	bclean = !"git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d"
 	cp = cherry-pick
 	ls = log --oneline
+	pushfwl = push --force-with-lease
+	gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D"
+	
+[rebase]
+	autosquash = true
