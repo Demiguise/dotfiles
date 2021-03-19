@@ -1,7 +1,6 @@
-[user]
-	email = andrew.hewitson@omegapoint.se
-	name = Andrew Hewitson
-	
+[include]
+	path = ~/.device.gitconfig
+
 [core]
 	autocrlf = false
 	
