@@ -15,6 +15,7 @@ call plug#end()
 """""""""""""""""""
 " Solarized
 """""""""""""""""""
+set background=dark
 colorscheme solarized8
 
 """""""""""""""""""
