@@ -3,6 +3,13 @@
 
 [core]
 	autocrlf = false
+	editor = vim
+	
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+	
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
 	
 [merge]
 	renamelimit = 2725
@@ -20,6 +27,15 @@
 	ls = log --oneline
 	pushfwl = push --force-with-lease
 	gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D"
+	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 	
 [rebase]
 	autosquash = true
+	
+[init]
+	defaultBranch = main
+	
+[color "status"]
+	added = green reverse
+	changed = yellow
+	untracked = cyan
