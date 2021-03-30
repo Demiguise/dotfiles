@@ -39,3 +39,8 @@
 	added = green reverse
 	changed = yellow
 	untracked = cyan
+	
+[color "branch"]
+	current = normal reverse
+	local = normal
+	remote = yellow
