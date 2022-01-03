@@ -4,13 +4,15 @@
 " Setup language
 set langmenu=en_GB
 
-set encoding=utf8
+
+"set encoding=utf8
 
 " Set default sizes
-set lines=50
-set columns=180
+"set lines=50
+"set columns=180
 
 " General visuals
+
 syntax enable
 
 " Don't wrap lines

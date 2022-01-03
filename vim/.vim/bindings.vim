@@ -1,6 +1,8 @@
 """""""""""""""""""
 " Bindings
 """""""""""""""""""
+
+let mapleader=","
                 
 " Unmap arrow keys. Hardmode Vim.
 inoremap <Up> <Nop>
