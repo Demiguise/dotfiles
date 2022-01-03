@@ -2,3 +2,4 @@
 .netrwhist
 local.vim
 vim/.vim/plugged
+.DS_Store
