@@ -2,7 +2,7 @@
 
 WORKING_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
 
-USER_HOME=$(getent passwd $USER | cut -d: -f6)
+USER_HOME=$HOME
 
 if [[ "$EUID" -eq 0 ]]; then
 	USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
