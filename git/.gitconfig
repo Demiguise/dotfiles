@@ -3,7 +3,7 @@
 
 [core]
 	autocrlf = false
-	editor = vim
+	editor = nvim
 	
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
@@ -44,3 +44,10 @@
 	current = normal reverse
 	local = normal
 	remote = yellow
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
