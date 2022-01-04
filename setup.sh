@@ -25,6 +25,7 @@ onCreateSymlink()
 	else
 		sudo ln -sf ${WORKING_DIR}/$1 $2
 	fi
+	sudo chown -h $USER:$USER $2
 }
 
 onCreateFile()
@@ -36,6 +37,7 @@ onCreateFile()
 onCreateSymlink git/.gitconfig ${USER_HOME}/.gitconfig
 onCreateSymlink vim/.vimrc ${USER_HOME}/.vimrc
 onCreateSymlink vim/.vim ${USER_HOME}/.vim
+onCreateSymlink bash/.bashrc ${USER_HOME}/.bashrc
 
 onCreateFile ${WORKING_DIR}/vim/.vim/local.vim
 onCreateFile ${USER_HOME}/.device.gitconfig
