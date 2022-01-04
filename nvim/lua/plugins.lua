@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate'
 	}
 
+  -- Improve fuzzy finding speed
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -25,67 +28,68 @@ return require('packer').startup(function(use)
 		}
 	}
 
-    -- Completion
-    use {
-        "hrsh7th/nvim-cmp",
-        requires = {
-          'hrsh7th/cmp-buffer',
-          'hrsh7th/cmp-nvim-lsp',
-          'neovim/nvim-lspconfig'
-        }
-    }
 
-    -- Shows indentation level for code
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function () require('indent_blankline').setup{} end
-    }
+  -- Completion
+  use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'neovim/nvim-lspconfig'
+      }
+  }
 
-    -- Automatically handles {} () []
-    use {
-        "windwp/nvim-autopairs",
-        config = function () require('nvim-autopairs').setup{} end
-    }
+  -- Shows indentation level for code
+  use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function () require('indent_blankline').setup{} end
+  }
 
-	-- Easier configuration
-	use 'svermeulen/vimpeccable'
+  -- Automatically handles {} () []
+  use {
+      "windwp/nvim-autopairs",
+      config = function () require('nvim-autopairs').setup{} end
+  }
 
-	-- Git
-	use "airblade/vim-gitgutter"
-	use "tpope/vim-fugitive"
+  -- Easier configuration
+  use 'svermeulen/vimpeccable'
 
-    -- Project
-    use {
-    "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup {}
-        end
-    }
+  -- Git
+  use "airblade/vim-gitgutter"
+  use "tpope/vim-fugitive"
 
-	-- Colourscheme
-	use 'marko-cerovac/material.nvim'
+  -- Project
+  use {
+  "ahmedkhalf/project.nvim",
+      config = function()
+          require("project_nvim").setup {}
+      end
+  }
 
-	use 'neovim/nvim-lspconfig'
-	use 'williamboman/nvim-lsp-installer'
+  -- Colourscheme
+  use 'marko-cerovac/material.nvim'
 
-	-- Show buffers in the top section of the window
-	use {
-		'akinsho/bufferline.nvim',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
 
-	-- Neat status bar
-	use {
-		"nvim-lualine/lualine.nvim",
-		requires = "kyazdani42/nvim-web-devicons"
-	}
+  -- Show buffers in the top section of the window
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
 
-    use {
-        'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.startify'.opts)
-        end
-    }
+  -- Neat status bar
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
+  }
+
+  use {
+      'goolord/alpha-nvim',
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.startify'.opts)
+      end
+  }
 
 	-- File explorer
 	use {
