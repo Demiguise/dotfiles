@@ -1,10 +1,7 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
-local servers = {
-	'sumneko_lua',
-	'clangd',
-	'jdtls',
-	'kotlin_language_server'
+local servers = { 
+  'sumneko_lua'
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -28,10 +25,4 @@ nvim_lsp['sumneko_lua'].setup {
 
 nvim_lsp['clangd'].setup {
   cmd = { nvim_data_path.."clangd/clangd_13.0.0/bin/clangd" }
-}
-
-nvim_lsp['jdtls'].setup {}
-
-nvim_lsp['kotlin_language_server'].setup {
-  cmd = { nvim_data_path.."kotlin/server/bin/kotlin-language-server" },
 }

@@ -14,7 +14,6 @@ vimp.noremap('<Right>','<Nop>')
 vimp.inoremap('jk','<ESC>')
 
 -- Stop exiting when I just want to close a buffer
--- What was this meant to be?
 
 -- Easier window movement
 vimp.nnoremap('<leader>h',':wincmd h<CR>')
@@ -27,6 +26,7 @@ vimp.nnoremap('<C-n>',':NvimTreeToggle<CR>')
 
 -- Telescope Plugin
 vimp.nnoremap('<leader>ff','<cmd>Telescope find_files<CR>')
+vimp.nnoremap('<leader>gb','<cmd>Telescope git_branches<CR>')
 
 -- Bufferline
 vimp.nnoremap('<C-1>', '<Cmd>BufferLineGoToBuffer 1<CR>')
@@ -38,6 +38,4 @@ vimp.nnoremap('<C-6>', '<Cmd>BufferLineGoToBuffer 6<CR>')
 vimp.nnoremap('<C-7>', '<Cmd>BufferLineGoToBuffer 7<CR>')
 vimp.nnoremap('<C-8>', '<Cmd>BufferLineGoToBuffer 8<CR>')
 vimp.nnoremap('<C-9>', '<Cmd>BufferLineGoToBuffer 9<CR>')
-
 vimp.nnoremap('<leader>b','<cmd>BufferLinePick<CR>')
-

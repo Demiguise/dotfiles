@@ -1,8 +1,8 @@
 vim.o.langmenu = "en_GB"
 vim.o.encoding = "utf8"
 
---vim.o.lines = 50
---vim.o.columns = 180
+vim.o.lines = 50
+vim.o.columns = 180
 
 vim.o.incsearch = true
 

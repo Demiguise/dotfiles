@@ -1,54 +1,56 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 vim.cmd([[
-	augroup packer_user_config
-		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-	augroup end
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
 ]])
 
 return require('packer').startup(function(use)
-	-- Colour handling
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
+  -- Let Packer manage itself
+  use 'wbthomason/packer.nvim'
 
-  -- Improve fuzzy finding speed
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Colour handling
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim'
-		}
-	}
+  -- File finding
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
+  use 'BurntSushi/ripgrep'
 
   -- Completion
   use {
-      "hrsh7th/nvim-cmp",
-      requires = {
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lsp',
-        'neovim/nvim-lspconfig'
-      }
+    "hrsh7th/nvim-cmp",
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'neovim/nvim-lspconfig'
+    }
   }
 
   -- Shows indentation level for code
   use {
-      "lukas-reineke/indent-blankline.nvim",
-      config = function () require('indent_blankline').setup{} end
+    "lukas-reineke/indent-blankline.nvim",
+    config = function () require('indent_blankline').setup{} end
   }
 
   -- Automatically handles {} () []
-  use {
-      "windwp/nvim-autopairs",
-      config = function () require('nvim-autopairs').setup{} end
+   use {
+    "windwp/nvim-autopairs",
+    config = function () require('nvim-autopairs').setup{} end
   }
 
   -- Easier configuration
@@ -60,22 +62,24 @@ return require('packer').startup(function(use)
 
   -- Project
   use {
-  "ahmedkhalf/project.nvim",
-      config = function()
-          require("project_nvim").setup {}
-      end
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {}
+    end
   }
 
   -- Colourscheme
   use 'marko-cerovac/material.nvim'
 
-  use 'neovim/nvim-lspconfig'
+  -- LSP configuration
+  use 'neovim/nvim-lspconfigneovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
   -- Show buffers in the top section of the window
   use {
     'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    branch = 'main'
   }
 
   -- Neat status bar
@@ -84,23 +88,24 @@ return require('packer').startup(function(use)
     requires = "kyazdani42/nvim-web-devicons"
   }
 
+  -- Greet when we open!
   use {
-      'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.startify'.opts)
-      end
+    'goolord/alpha-nvim',
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.opts)
+    end
   }
 
-	-- File explorer
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = {
-		  'kyazdani42/nvim-web-devicons', -- optional, for file icon
-		},
-		config = function() require('nvim-tree').setup {} end
-	}
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require('nvim-tree').setup {} end
+  }
 
-	if packer_bootstrap then
-		require('packer').sync()
-	end
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 end)
