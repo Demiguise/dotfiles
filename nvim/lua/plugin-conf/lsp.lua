@@ -24,5 +24,5 @@ nvim_lsp['sumneko_lua'].setup {
 }
 
 nvim_lsp['clangd'].setup {
-  cmd = { nvim_data_path.."clangd/clangd_13.0.0/bin/clangd" }
+  cmd = { nvim_data_path.."clangd/clangd/bin/clangd" }
 }

@@ -4,7 +4,7 @@ require('nvim-treesitter.configs').setup {
     "c", "cpp",
     "kotlin", "java",
     "rust", "lua"
-  }
+  },
   highlight = {
       enable = true
   }

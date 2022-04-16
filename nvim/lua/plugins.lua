@@ -72,7 +72,7 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
 
   -- LSP configuration
-  use 'neovim/nvim-lspconfigneovim/nvim-lspconfig'
+  use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
   -- Show buffers in the top section of the window
@@ -89,12 +89,7 @@ return require('packer').startup(function(use)
   }
 
   -- Greet when we open!
-  use {
-    'goolord/alpha-nvim',
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.opts)
-    end
-  }
+  use 'mhinz/vim-startify'
 
   -- File explorer
   use {
