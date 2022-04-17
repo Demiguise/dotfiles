@@ -75,6 +75,9 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
+  -- Rust LSP support
+  use 'simrat39/rust-tools.nvim'
+
   -- Show buffers in the top section of the window
   use {
     'akinsho/bufferline.nvim',

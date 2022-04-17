@@ -26,3 +26,19 @@ nvim_lsp['sumneko_lua'].setup {
 nvim_lsp['clangd'].setup {
   cmd = { nvim_data_path.."clangd/clangd/bin/clangd" }
 }
+
+local lsp_installer = require('nvim-lsp-installer')
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  if server.name == "rust_analyzer" then
+    local tools = require("rust-tools")
+    tools.setup {
+      server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+    }
+    server:attach_buffers()
+    tools.start_standalone_if_required()
+  else
+    server:setup(opts)
+  end
+end)
