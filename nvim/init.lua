@@ -12,6 +12,6 @@ require('plugin-conf.treesitter')
 require('plugin-conf.nvim-tree')
 
 -- Settings should come after plugins, since they may reference them
-require('colourscheme')
-require('mappings')
 require('editor')
+require('mappings')
+require('colourscheme')

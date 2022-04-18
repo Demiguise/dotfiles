@@ -13,8 +13,6 @@ vimp.noremap('<Right>','<Nop>')
 -- Exit insert mode by typing
 vimp.inoremap('jk','<ESC>')
 
--- Stop exiting when I just want to close a buffer
-
 -- Easier window movement
 vimp.nnoremap('<leader>h',':wincmd h<CR>')
 vimp.nnoremap('<leader>j',':wincmd j<CR>')
