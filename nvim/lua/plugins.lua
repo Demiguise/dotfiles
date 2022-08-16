@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Ripgrep integration
   use 'BurntSushi/ripgrep'
 
   -- Completion
@@ -73,7 +74,6 @@ return require('packer').startup(function(use)
 
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
 
   -- Rust LSP support
   use 'simrat39/rust-tools.nvim'
