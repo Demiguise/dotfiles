@@ -1,3 +1,4 @@
+require('local')
 require('plugins')
 
 vim.o.termguicolors = true

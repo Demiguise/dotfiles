@@ -1,6 +1,7 @@
 *.swp
 .netrwhist
 local.vim
+local-override.lua
 nvim/plugin
 vim/.vim/plugged
 .DS_Store
