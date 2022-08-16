@@ -42,6 +42,10 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Snippet support (And binding into cmp)
+  use "L3MON4D3/LuaSnip"
+  use "saadparwaiz1/cmp_luasnip"
+
   -- Shows indentation level for code
   use {
     "lukas-reineke/indent-blankline.nvim",

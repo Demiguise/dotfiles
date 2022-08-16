@@ -25,9 +25,9 @@ local cfg = {
 -- N.B. This might be overly simple and not recursive. It works
 -- for now but might need alterations later to handle sub table changes
 -- to defaults.
-if moduleAvailable("local-override")
+if moduleAvailable("dev.local-override")
 then
-  local overrides = require("local-override")
+  local overrides = require("dev.local-override")
   for k,v in pairs(overrides) do cfg[k] = v end
 end
 

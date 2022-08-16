@@ -9,5 +9,11 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'buffer' },
-    })
+        { name = 'luasnip' },
+    }),
+    snippet = {
+      expand = function(args)
+        require("luasnips").lsp_expand(args.body)
+      end
+    }
 })

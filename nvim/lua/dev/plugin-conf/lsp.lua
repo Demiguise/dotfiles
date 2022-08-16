@@ -1,4 +1,4 @@
-local cfg = require('local')
+local cfg = require('dev.local')
 local servers = cfg.lsp_servers
 
 local nvim_lsp = require('lspconfig')
