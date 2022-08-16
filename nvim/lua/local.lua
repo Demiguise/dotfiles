@@ -14,10 +14,17 @@ function moduleAvailable(name)
   end
 end
 
+-- Default config
 local cfg = {
   lsp_servers = {}
 }
 
+-- We can override the default configuration above by making
+-- a local override lua file. This file just needs to return
+-- a table that matches the default keys.
+-- N.B. This might be overly simple and not recursive. It works
+-- for now but might need alterations later to handle sub table changes
+-- to defaults.
 if moduleAvailable("local-override")
 then
   local overrides = require("local-override")
