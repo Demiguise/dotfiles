@@ -1,7 +1,4 @@
-# Nvim Config
+# 💤 LazyVim
 
-## First Run
-
-Open/Close nvim to bootstrap packer, then run `:PackerInstall`.
-Install relevant LSPs via `:LspInstall`.
-
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
