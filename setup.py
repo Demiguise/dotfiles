@@ -8,6 +8,8 @@ class BaseConfig():
         self.name = "Base"
         self.symlinks = {
             "git/.gitconfig": ".gitconfig",
+            "wezterm/cfg": ".wezterm",
+            "wezterm/shim.lua": ".wezterm.lua",
         }
 
 class Windows(BaseConfig):
@@ -56,6 +58,11 @@ def main() -> None:
             out.symlink_to(abs_src)
         except Exception as e:
             print(f"\tFailed: {e}")
+
+    device_gitconfig = Path.home().joinpath(".device.gitconfig")
+    print(f"Device's gitconfig exists: {device_gitconfig.exists()}")
+    if not device_gitconfig.exists():
+        device_gitconfig.write_text("")
 
 if __name__ == "__main__":
     main()
