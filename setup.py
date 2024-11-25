@@ -25,7 +25,7 @@ class Linux(BaseConfig):
         self.name = "Linux"
 
         self.symlinks["bash/.bashrc"] = ".bashrc"
-        self.symlinks["nvim"] = "~/.config/nvim"
+        self.symlinks["nvim"] = ".config/nvim"
 
 class MacOS(BaseConfig):
     def __init__(self) -> None:
@@ -33,7 +33,7 @@ class MacOS(BaseConfig):
         self.name = "MacOS"
 
         self.symlinks["bash/.bashrc"] = ".bashrc"
-        self.symlinks["nvim"] = "~/.config/nvim"
+        self.symlinks["nvim"] = ".config/nvim"
 
 def get_platform() -> BaseConfig:
     plat = platform.system()
