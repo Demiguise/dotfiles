@@ -19,13 +19,17 @@
 
 [alias]
 	st = status
+	sti = status --ignore-submodules
 	cmt = commit
 	dh = diff
-	ireb = rebase -i
-	bclean = !"git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d"
+  ireb = rebase -i
+  camend = commit --amend --no-edit
+  cfix = commit --fixup
+  bclean = !"git branch --merged | egrep -v \"(^\\*|master|main|dev)\" | xargs git branch -d"
 	cp = cherry-pick
 	ls = log --oneline
 	pushfwl = push --force-with-lease
+	clean-nuke- = !"git submodule foreach --recursive git clean -fdx"
 	gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D"
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 	
