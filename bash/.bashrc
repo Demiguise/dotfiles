@@ -118,3 +118,5 @@ if [ -f "$(which powerline-daemon)" ]; then
   . /usr/share/powerline/bindings/bash/powerline.sh
 fi
 . "$HOME/.cargo/env"
+
+source ~/.device.bashrc

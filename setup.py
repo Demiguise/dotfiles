@@ -3,7 +3,8 @@ import platform
 from pathlib import Path
 from enum import Enum
 
-class BaseConfig():
+
+class BaseConfig:
     def __init__(self) -> None:
         self.name = "Base"
         self.symlinks = {
@@ -12,12 +13,14 @@ class BaseConfig():
             "wezterm/shim.lua": ".wezterm.lua",
         }
 
+
 class Windows(BaseConfig):
     def __init__(self) -> None:
         super().__init__()
         self.name = "Windows"
 
         self.symlinks["nvim"] = "AppData\\Local\\nvim"
+
 
 class Linux(BaseConfig):
     def __init__(self) -> None:
@@ -27,6 +30,7 @@ class Linux(BaseConfig):
         self.symlinks["bash/.bashrc"] = ".bashrc"
         self.symlinks["nvim"] = ".config/nvim"
 
+
 class MacOS(BaseConfig):
     def __init__(self) -> None:
         super().__init__()
@@ -34,6 +38,7 @@ class MacOS(BaseConfig):
 
         self.symlinks["bash/.bashrc"] = ".bashrc"
         self.symlinks["nvim"] = ".config/nvim"
+
 
 def get_platform() -> BaseConfig:
     plat = platform.system()
@@ -45,6 +50,7 @@ def get_platform() -> BaseConfig:
         return MacOS()
     else:
         return BaseConfig()
+
 
 def main() -> None:
     config = get_platform()
@@ -63,6 +69,12 @@ def main() -> None:
     print(f"Device's gitconfig exists: {device_gitconfig.exists()}")
     if not device_gitconfig.exists():
         device_gitconfig.write_text("")
+
+    device_bashrc = Path.home().joinpath(".device.bashrc")
+    print(f"Device's bashrc exists: {device_bashrc.exists()}")
+    if not device_bashrc.exists():
+        device_bashrc.write_text("")
+
 
 if __name__ == "__main__":
     main()
